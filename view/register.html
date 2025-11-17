@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account | SafeSpace</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Create Account — SafeSpace</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-
-    <div class="form-container">
-        <h2>Create Account</h2>
-        <p class="subtitle">Join SafeSpace and start your healing journey.</p>
-
-        <form id="registerForm">
-            <label>Username</label>
-            <input type="text" id="regUsername" required>
-
-            <label>Email</label>
-            <input type="email" id="regEmail" required>
-
-            <label>Password</label>
-            <input type="password" id="regPassword" required>
-
-            <button type="submit" class="btn">Register</button>
-        </form>
-
-        <p class="switch-text">
-            Already have an account? <a href="login.html">Login</a>
-        </p>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo">SafeSpace</a>
     </div>
+    <ul class="nav-right">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="login.html" class="nav-link">Login</a></li>
+    </ul>
+  </nav>
 
-    <script src="assets/js/script.js"></script>
+  <main class="container">
+    <section class="form-wrap">
+      <h1>Create your SafeSpace account</h1>
+      <p class="muted">Use a pseudonym if you prefer — anonymity is respected.</p>
+
+      <form id="registerForm" class="form-card">
+        <label for="regName">Display Name (pseudonym)</label>
+        <input id="regName" type="text" placeholder="e.g. BraveBird" required />
+
+        <label for="regEmail">Email (optional)</label>
+        <input id="regEmail" type="email" placeholder="you@example.com" />
+
+        <label for="regPassword">Password</label>
+        <input id="regPassword" type="password" placeholder="Choose a secure password" required />
+
+        <label class="checkbox">
+          <input id="anonConfirm" type="checkbox" />
+          <span>Show my posts under my pseudonym only (recommended)</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary full">Register</button>
+        <p class="muted small">By registering you agree to follow the Community Guidelines.</p>
+
+        <p class="switch-link">Already have an account? <a href="login.html">Login</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
