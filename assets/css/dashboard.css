@@ -29,7 +29,6 @@
     border-radius: 8px;
 }
 
-/* Color Picker (Radio Buttons) */
 .color-picker {
     display: flex;
     justify-content: center;
@@ -38,7 +37,7 @@
 }
 
 .color-picker input {
-    display: none; /* Hide actual radio buttons */
+    display: none;
 }
 
 .color-picker label {
@@ -99,4 +98,25 @@
     color: #00BCD4;
     font-weight: bold;
     text-decoration: none;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background-color: #FFB6C1; 
+    color: #333;               
+    border: none;
+    border-radius: 50px;      
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background-color: #ff9eaf; /* Darker Pink on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4); 
 }

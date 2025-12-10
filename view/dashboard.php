@@ -63,22 +63,24 @@ $stmt->close();
             
             <div class="setup-card">
                 <h2>Create Your Persona</h2>
-                <p>To keep you safe, we use anonymous names. Choose yours below.</p>
+                <p>To keep you safe, we use anonymous names. Enter yours below.</p>
                 
                 <form action="../actions/create_profile.php" method="POST">
                     
                     <div class="input-group">
-                        <label>Choose an Anonymous Username</label>
+                        <label>Enter an Anonymous Username</label>
                         <input type="text" name="anonymous_username" placeholder="e.g. HopefulStar, BlueSky22" required>
                     </div>
 
                     <label>Choose your Aura (Avatar Color)</label>
                     <div class="color-picker">
-                        <input type="radio" name="avatar_color" value="#FFB6C1" id="c1" checked><label for="c1" style="background:#FFB6C1;"></label>
-                        <input type="radio" name="avatar_color" value="#40E0D0" id="c2"><label for="c2" style="background:#40E0D0;"></label>
-                        <input type="radio" name="avatar_color" value="#00BCD4" id="c3"><label for="c3" style="background:#00BCD4;"></label>
+                        <input type="radio" name="avatar_color" value="#ef092cff" id="c1" checked><label for="c1" style="background:#ef092cff;"></label>
+                        <input type="radio" name="avatar_color" value="#ea2fc8e1" id="c2"><label for="c2" style="background:#3a2;"></label>
+                        <input type="radio" name="avatar_color" value="#4117e7ff" id="c3"><label for="c3" style="background:#4117e7ff;"></label>
                         <input type="radio" name="avatar_color" value="#E6E6FA" id="c4"><label for="c4" style="background:#E6E6FA;"></label>
                         <input type="radio" name="avatar_color" value="#FFD700" id="c5"><label for="c5" style="background:#FFD700;"></label>
+                        <input type="radio" name="avatar_color" value="#0eef1dff" id="c6"><label for="c6" style="background:#0eef1dff;"></label>
+                        <input type="radio" name="avatar_color" value="#690598ff" id="c7"><label for="c7" style="background:#690598ff;"></label>
                     </div>
 
                     <button type="submit" class="btn-primary" style="margin-top: 20px;">Start My Journey</button>
