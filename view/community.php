@@ -105,10 +105,34 @@ $result = $conn->query($sql);
                         </div>
                     <?php endif; ?>
 
+                    <?php
+                    // 1. Get Like Count
+                    $post_id = $row['post_id'];
+                    $sql_likes = "SELECT COUNT(*) as count FROM reactions_safespace WHERE post_id = $post_id";
+                    $res_likes = $conn->query($sql_likes);
+                    $row_likes = $res_likes->fetch_assoc();
+                    $like_count = $row_likes['count'];
+
+                    // 2. Check if CURRENT user liked this
+                    // We need the current user's profile_id first (fetched once at top of page ideally, but here works)
+                    $curr_user_id = $_SESSION['user_id'];
+                    $sql_check_like = "SELECT reaction_id FROM reactions_safespace 
+                                    WHERE post_id = $post_id 
+                                    AND profile_id = (SELECT profile_id FROM profiles_safespace WHERE user_id = $curr_user_id)";
+                    $res_check = $conn->query($sql_check_like);
+                    $user_liked = ($res_check->num_rows > 0);
+                    ?>
+
                     <div class="post-actions">
+                        
                         <form action="../actions/react_post.php" method="POST" style="display:inline;">
                             <input type="hidden" name="post_id" value="<?php echo $row['post_id']; ?>">
-                            <button type="submit" class="action-btn"><i class="far fa-heart"></i> Like</button>
+                            
+                            <button type="submit" class="action-btn <?php echo $user_liked ? 'liked-active' : ''; ?>">
+                                <i class="<?php echo $user_liked ? 'fas' : 'far'; ?> fa-heart"></i> 
+                                
+                                <?php echo ($like_count > 0) ? $like_count : 'Like'; ?>
+                            </button>
                         </form>
                         
                         <button class="action-btn" onclick="toggleComments(<?php echo $row['post_id']; ?>)">

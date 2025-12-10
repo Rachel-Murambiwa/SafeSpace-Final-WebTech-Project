@@ -47,6 +47,7 @@ $stmt->close();
         <div class="container nav-container">
             <h1 class="logo">SafeSpace 💜</h1>
             <ul class="nav-links">
+                <a href="profile.php" style="color: #00BCD4;">My Profile</a>
                 <li><a href="../actions/logout.php" class="btn-join" style="background: #FFB6C1; color: #333;">Logout</a></li>
             </ul>
         </div>
@@ -101,13 +102,13 @@ $stmt->close();
                 <div class="card">
                     <h3>📖 My Journal</h3>
                     <p>Write your thoughts privately.</p>
-                    <a href="#" class="btn-link">Open Journal</a>
+                    <a href="../view/journal.php" class="btn-link">Open Journal</a>
                 </div>
 
                 <div class="card">
                     <h3>📢 Community Stories</h3>
                     <p>Read stories from others.</p>
-                    <a href="#" class="btn-link">Read Stories</a>
+                    <a href="../view/community.php" class="btn-link">Read Stories</a>
                 </div>
             </div>
 
