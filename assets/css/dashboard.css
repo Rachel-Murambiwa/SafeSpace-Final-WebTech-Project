@@ -1,0 +1,102 @@
+/* Dashboard Layout */
+.dashboard-container {
+    padding: 40px 20px;
+    max-width: 900px;
+}
+
+.dash-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.dash-header h1 { color: #00BCD4; }
+
+/* Setup Card (The Form) */
+.setup-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.setup-card input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Color Picker (Radio Buttons) */
+.color-picker {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.color-picker input {
+    display: none; /* Hide actual radio buttons */
+}
+
+.color-picker label {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: transform 0.2s;
+}
+
+.color-picker label:hover {
+    transform: scale(1.1);
+}
+
+/* Highlight selected color */
+.color-picker input:checked + label {
+    border-color: #333;
+    transform: scale(1.2);
+}
+
+/* Dashboard Grid (View Mode) */
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.profile-card {
+    background: #fafafa;
+}
+
+.avatar-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00BCD4;
+    font-weight: bold;
+    text-decoration: none;
+}

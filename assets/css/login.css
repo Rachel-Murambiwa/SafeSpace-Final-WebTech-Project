@@ -1,0 +1,183 @@
+/* =============================
+   1. MAIN LAYOUT (Split Screen)
+   ============================= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F9F6F0; /* Soft beige background */
+}
+
+.auth-body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 85vh;
+    background: #FFFFFF;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden; /* Keeps the rounded corners */
+}
+
+/* =============================
+   2. VISUAL SIDE (Left/Right)
+   ============================= */
+.auth-visual {
+    flex: 1; /* Takes up 50% of space */
+    background-color: #f7e7f7;
+    background-image: url('../images/calm-bg.jpg'); /* Ensure this path is correct */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: none; /* Hides on mobile */
+}
+
+/* Show visual side on larger screens */
+@media (min-width: 768px) {
+    .auth-visual {
+        display: flex;
+    }
+}
+
+.overlay {
+    background: rgba(42, 127, 134, 0.85); /* Teal Overlay */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+.overlay h2 {
+    color: #FFB7B2; /* Pink Accent */
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+/* =============================
+   3. FORM SIDE (The Login Part)
+   ============================= */
+.auth-form-wrapper {
+    flex: 1; /* Takes up the other 50% */
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FFFFFF;
+    text-align: center; /* Centers text headers */
+}
+
+.auth-header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2A7F86; /* Teal */
+    margin: 0;
+}
+
+.dot { color: #FFB7B2; } /* Pink Dot */
+
+.auth-header h3 {
+    color: #555;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* =============================
+   4. INPUTS & BUTTONS (The Fix)
+   ============================= */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Aligns labels to left for readability */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* Input Focus State */
+input:focus {
+    border-color: #2A7F86; /* Teal border on click */
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(42, 127, 134, 0.1);
+}
+
+/* The Button Fix */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #FFB7B2; /* Pink Background */
+    color: #2C3E50; /* Dark Text */
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none; /* REMOVES THE UGLY BORDER */
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff9e9e; /* Darker pink on hover */
+    transform: translateY(-1px);
+}
+
+/* =============================
+   5. FOOTER LINKS
+   ============================= */
+.auth-footer {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.auth-footer a {
+    color: #2A7F86;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.forgot-link {
+    display: block;
+    margin-top: 10px;
+    color: #888;
+    font-size: 0.85rem;
+}

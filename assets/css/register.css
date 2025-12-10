@@ -1,0 +1,298 @@
+/* assets/css/register.css */
+
+body.register-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F9F6F0; /* Soft beige background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.register-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 85vh; 
+    background: #FFFFFF; /* White */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* --- Visual Side (Left) --- */
+.register-visual {
+    flex: 1;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: flex-end; 
+}
+
+.register-visual-text {
+    background: rgba(42, 127, 134, 0.85); /* Dark Teal Overlay */
+    color: #fff;
+    padding: 30px;
+    width: 100%;
+}
+
+.register-visual-text h2 {
+    color: #FFB7B2; /* Pink Accent */
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.register-visual-text p {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* --- Form Side (Right) --- */
+.register-form-container {
+    flex: 1.2; 
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; /* Adds scrollbar if screen is too small vertically */
+}
+
+/* --- Form Styling --- */
+.register-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title {
+    color: #2A7F86; 
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Row for Name fields */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+.form-row .input-group {
+    flex: 1;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2A7F86; /* Teal Primary */
+    margin-bottom: 5px;
+}
+
+/* Styling Inputs AND Select Dropdown */
+.register-form input, 
+.register-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #E3DFF2; /* Lavender Border */
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+}
+
+/* Focus State */
+.register-form input:focus,
+.register-form select:focus {
+    outline: none;
+    border-color: #FFB7B2; /* Pink Accent Border */
+    box-shadow: 0 0 0 3px rgba(255, 183, 178, 0.3); 
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #FFB7B2; /* Pink Accent Button */
+    color: #2C3E50; /* Dark Text */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-submit:hover {
+    background: #FF9E9E; /* Hot Pink Hover */
+    transform: translateY(-2px);
+}
+
+/* Base style for the list */
+#password-requirements {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+#password-requirements li {
+    margin-bottom: 4px;
+    padding-left: 20px;
+    position: relative;
+    transition: color 0.3s ease; /* Smooth color change */
+}
+
+/* 🔴 Invalid State (Red) */
+.invalid {
+    color: #e74c3c;
+    opacity: 0.7;
+}
+
+/* Icon for Invalid */
+.invalid::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* 🟢 Valid State (Green) */
+.valid {
+    color: #2ecc71; /* Bright Green */
+    font-weight: 600; /* Make it slightly bolder */
+    opacity: 1;
+}
+
+/* Icon for Valid */
+.valid::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2ecc71;
+    font-weight: bold;
+}
+/* Password Match Message */
+#match-message {
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    height: 1.2em; /* Keeps space so layout doesn't jump */
+}
+
+/* Green for Match */
+.match-success {
+    color: #2ecc71; /* Green */
+}
+.match-success::before {
+    content: '✓ ';
+}
+
+/* Red for Mismatch */
+.match-error {
+    color: #e74c3c; /* Red */
+}
+.match-error::before {
+    content: '✕ ';
+}
+
+/* --- Mobile Adaptations --- */
+@media (max-width: 850px) {
+    .register-container {
+        flex-direction: column; 
+        height: auto;
+        min-height: 100vh;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .register-visual {
+        height: 200px; 
+    }
+    
+    .register-form-container {
+        padding: 30px 20px;
+    }
+/* Base style for the list */
+#password-requirements {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+#password-requirements li {
+    margin-bottom: 4px;
+    padding-left: 20px;
+    position: relative;
+    transition: color 0.3s ease; /* Smooth color change */
+}
+
+/* 🔴 Invalid State (Red) */
+.invalid {
+    color: #e74c3c;
+    opacity: 0.7;
+}
+
+/* Icon for Invalid */
+.invalid::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* 🟢 Valid State (Green) */
+.valid {
+    color: #2ecc71; /* Bright Green */
+    font-weight: 600; /* Make it slightly bolder */
+    opacity: 1;
+}
+
+/* Icon for Valid */
+.valid::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+/* Password Match Message */
+#match-message {
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    height: 1.2em; /* Keeps space so layout doesn't jump */
+}
+
+/* Green for Match */
+.match-success {
+    color: #2ecc71; /* Green */
+}
+.match-success::before {
+    content: '✓ ';
+}
+
+/* Red for Mismatch */
+.match-error {
+    color: #e74c3c; /* Red */
+}
+.match-error::before {
+    content: '✕ ';
+}
+}
