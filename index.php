@@ -42,7 +42,7 @@
             <p>A safe haven where women can share, heal, and grow, 
                 strengthened by community and free from judgment.</p>
             <div class="hero-btns">
-                <a href="view/register.php" class="btn btn-primary">Join Community</a>
+                <a href="view/register.php" class="btn btn-outline">Join Community</a>
                 <a href="#about" class="btn btn-outline">Learn More</a>
             </div>
         </div>
@@ -145,7 +145,7 @@
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
                     <textarea rows="4" placeholder="How can we help?"></textarea>
-                    <button type="submit" class="btn-primary">Send Message</button>
+                    <button type="submit" class="btn-outline">Send Message</button>
                 </form>
             </div>
         </div>

@@ -2,13 +2,22 @@
 session_start();
 require '../../db/config.php';
 
-// 1. SECURITY CHECK
-if (!isset($_SESSION['user_id']) || (isset($_SESSION['roles']) && $_SESSION['roles'] !== 'admin')) {
-    // header("Location: ../login.php");
-    // exit();
+if (!isset($_SESSION['user_id'])) {
+    // Not logged in? Send to login page
+    header("Location: ../login.php");
+    exit(); // Stop loading the rest of the page immediately
 }
 
-// --- HANDLE ACTIONS ---
+// 2. Is the logged-in user an ADMIN?
+// We check the session variable set during login
+if (!isset($_SESSION['roles']) || $_SESSION['roles'] !== 'admin') {
+    // Logged in but NOT an admin?
+    // Kick them back to the regular user dashboard
+    header("Location: ../dashboard.php");
+    exit();
+}
+
+
 
 // A. DELETE ACTIONS
 if (isset($_GET['delete_user'])) {
