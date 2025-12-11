@@ -8,13 +8,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = trim($_POST['email']);
     $password = $_POST['password']; 
+    
 
     if (empty($email) || empty($password)) {
-        header("Location: ../view/login.html?error=empty");
+        header("Location: ../view/login.php?error=empty");
         exit();
     }
 
-    $sql = "SELECT user_id, fname, lname, password_hash FROM users_safespace WHERE email = ?";
+    $sql = "SELECT user_id, fname, lname, password_hash, roles FROM users_safespace WHERE email = ?";
     
     $stmt = $conn->prepare($sql);
 
@@ -25,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->num_rows == 1) {
             $hashed_password = ""; 
-            $stmt->bind_result($user_id, $fname, $lname, $hashed_password);
+            $stmt->bind_result($user_id, $fname, $lname, $hashed_password, $role);
             $stmt->fetch();
 
             if (password_verify($password, $hashed_password)) {
@@ -33,8 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['fname'] = $fname;
                 $_SESSION['lname'] = $lname;
                 $_SESSION['email'] = $email;
-                header("Location: ../view/dashboard.php");
+                $_SESSION['roles'] = $role; 
+    
+                if ($role === 'admin') {
+                    header("Location: ../view/admin/dashboard.php");
+                } else {
+                    header("Location: ../view/dashboard.php");
+                }
                 exit();
+            
 
             } else {
                 header("Location: ../view/login.php?error=wrong_password");
@@ -49,14 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
     } 
     else {
-        header("Location: ../view/login.html?error=system");
+        header("Location: ../view/login.php?error=system");
         exit();
     }
     
     $conn->close();
 
 } else {
-    header("Location: ../view/login.html");
+    header("Location: ../view/login.php");
     exit();
 }
 ?>

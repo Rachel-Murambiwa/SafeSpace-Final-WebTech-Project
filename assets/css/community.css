@@ -372,6 +372,20 @@ textarea {
     animation: pop 0.3s ease; /* Small pop animation */
 }
 
+/* Flag Button Styles */
+.btn-flag {
+    color: #ccc; /* Subtle grey by default */
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-left: 10px;
+}
+
+.btn-flag:hover {
+    color: #e74c3c; /* Turns Red on hover */
+    cursor: pointer;
+}
+
 /* Little animation when you click like */
 @keyframes pop {
     0% { transform: scale(1); }

@@ -44,8 +44,26 @@ if ($profile) {
     <style>
         .profile-header { background: white; padding: 30px; text-align: center; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .avatar-large { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; }
+        
         .btn-edit { background: #FFD700; color: #333; padding: 5px 15px; border-radius: 15px; text-decoration: none; font-size: 0.9rem; font-weight: bold; margin-right: 10px; }
         .btn-delete { background: #e74c3c; color: white; padding: 5px 15px; border-radius: 15px; border: none; font-size: 0.9rem; font-weight: bold; cursor: pointer; }
+        
+        /* New Button Style for Password */
+        .btn-password { 
+            background: #333; color: white; padding: 8px 20px; border-radius: 20px; 
+            text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; cursor: pointer; 
+        }
+        .btn-password:hover { background: #555; }
+
+        /* Form Inputs in Modal */
+        .modal-input {
+            width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;
+        }
+        
+        /* Alerts */
+        .alert { padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center; }
+        .alert-success { background: #d4edda; color: #155724; }
+        .alert-danger { background: #f8d7da; color: #721c24; }
     </style>
 </head>
 <body>
@@ -63,24 +81,40 @@ if ($profile) {
 
 <div class="container feed-container">
     
+    <?php if(isset($_GET['msg']) && $_GET['msg']=='password_updated'): ?>
+        <div class="alert alert-success">Password updated successfully! ✅</div>
+    <?php endif; ?>
+    <?php if(isset($_GET['error'])): ?>
+        <div class="alert alert-danger">
+            <?php 
+                if($_GET['error']=='wrong_current') echo "Current password is incorrect.";
+                elseif($_GET['error']=='mismatch') echo "New passwords do not match.";
+                elseif($_GET['error']=='short') echo "Password must be at least 6 characters.";
+                else echo "Something went wrong.";
+            ?>
+        </div>
+    <?php endif; ?>
+
     <div class="profile-header">
         <div class="avatar-large" style="background: <?php echo $profile['avatar_color']; ?>;">
             <?php echo strtoupper(substr($profile['anonymous_username'], 0, 1)); ?>
         </div>
         <h2><?php echo htmlspecialchars($profile['anonymous_username']); ?></h2>
         <p><?php echo count($posts); ?> Posts Shared</p>
+        
+        <button onclick="openPasswordModal()" class="btn-password">
+            <i class="fas fa-lock"></i> Change Password
+        </button>
     </div>
 
     <h3>My Posts</h3>
     <?php if (count($posts) > 0): ?>
         <?php foreach ($posts as $post): ?>
             <div class="post-card">
-                
                 <p class="post-text"><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
                 
                 <?php
                 $post_id = $post['post_id'];
-                // Query the images table
                 $sql_img = "SELECT image_path FROM post_images_safespace WHERE post_id = $post_id";
                 $result_img = $conn->query($sql_img);
                 $images = [];
@@ -129,8 +163,24 @@ if ($profile) {
     </div>
 </div>
 
-<script src="../assets/js/profile.js">
-</script>
+<div id="passwordModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <h3 style="color:#333;">Change Password</h3>
+        <form action="../actions/change_password.php" method="POST">
+            <input type="password" name="current_password" class="modal-input" placeholder="Current Password" required>
+            <input type="password" name="new_password" class="modal-input" placeholder="New Password (min 6 chars)" required>
+            <input type="password" name="confirm_password" class="modal-input" placeholder="Confirm New Password" required>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="closePasswordModal()">Cancel</button>
+                <button type="submit" class="btn-confirm-delete" style="background: #333; border: none; cursor:pointer;">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../assets/js/profile.js"></script>
+
 <?php include "../utils/exit_button.php" ?>
 </body>
 </html>

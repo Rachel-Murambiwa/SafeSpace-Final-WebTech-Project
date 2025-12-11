@@ -130,7 +130,6 @@ $result = $conn->query($sql);
                             
                             <button type="submit" class="action-btn <?php echo $user_liked ? 'liked-active' : ''; ?>">
                                 <i class="<?php echo $user_liked ? 'fas' : 'far'; ?> fa-heart"></i> 
-                                
                                 <?php echo ($like_count > 0) ? $like_count : 'Like'; ?>
                             </button>
                         </form>
@@ -155,16 +154,26 @@ $result = $conn->query($sql);
     <div class="comments-list">
         <?php if ($result_comments->num_rows > 0): ?>
             <?php while($comment = $result_comments->fetch_assoc()): ?>
-                <div class="single-comment">
-                    <span class="comment-avatar" style="background: <?php echo $comment['avatar_color']; ?>">
-                        <?php echo strtoupper(substr($comment['anonymous_username'], 0, 1)); ?>
-                    </span>
-                    
-                    <div class="comment-body">
+               <div class="single-comment">
+                <span class="comment-avatar" style="background: <?php echo $comment['avatar_color']; ?>">
+                    <?php echo strtoupper(substr($comment['anonymous_username'], 0, 1)); ?>
+                </span>
+                
+                <div class="comment-body">
+                    <div style="display: flex; justify-content: space-between; align-items: center; min-width: 200px;">
                         <span class="comment-user"><?php echo htmlspecialchars($comment['anonymous_username']); ?></span>
-                        <span class="comment-text"><?php echo htmlspecialchars($comment['content']); ?></span>
+                        
+                        <a href="../actions/flag_comment.php echo $comment['comment_id']; ?>" 
+                        class="btn-flag" 
+                        title="Report this comment"
+                        onclick="return confirm('Are you sure you want to report this comment?');">
+                        <i class="far fa-flag"></i>
+                        </a>
                     </div>
+
+                    <span class="comment-text"><?php echo htmlspecialchars($comment['content']); ?></span>
                 </div>
+</div>
             <?php endwhile; ?>
         <?php else: ?>
             <p style="font-size: 0.8rem; color: #888; font-style: italic;">No comments yet. Be the first!</p>
