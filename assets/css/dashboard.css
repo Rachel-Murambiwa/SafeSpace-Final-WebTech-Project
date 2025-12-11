@@ -116,7 +116,90 @@
 }
 
 .btn-primary:hover {
-    background-color: #ff9eaf; /* Darker Pink on hover */
+    background-color: #ff9eaf;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4); 
 }
+
+
+.quote-card {
+    background: linear-gradient(135deg, #fff 0%, #f0f7ff 100%); 
+    border-left: 5px solid #00BCD4; 
+    position: relative;
+    padding: 30px;
+    grid-column: span 1; 
+}
+
+
+@media (min-width: 768px) {
+    .quote-card {
+        grid-column: span 2; 
+    }
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: #e0e0e0;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: serif;
+    z-index: 0;
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #444;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.quote-author {
+    font-size: 0.9rem;
+    color: #00BCD4; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-align: right; 
+}
+
+
+.mood-card {
+    grid-column: span 2; 
+    text-align: center;
+}
+
+.mood-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.mood-btn {
+    border: none;
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.mood-btn:hover { transform: translateY(-3px); }
+
+.happy:hover { background: #fff9c4; color: #fbc02d; }
+.calm:hover { background: #e1f5fe; color: #0288d1; }
+.anxious:hover { background: #ffebee; color: #d32f2f; }
+.sad:hover { background: #eceff1; color: #455a64; }
+
+.chart-container {
+    height: 250px; 
+    width: 100%;
+}
+

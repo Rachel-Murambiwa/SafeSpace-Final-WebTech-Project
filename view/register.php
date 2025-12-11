@@ -129,5 +129,6 @@
     </div>
   </div>
 <script src = "../assets/js/register.js"></script>
+<?php include "../utils/exit_button.php" ?>
 </body>
 </html>

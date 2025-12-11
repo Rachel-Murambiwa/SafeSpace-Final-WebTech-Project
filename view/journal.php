@@ -132,7 +132,7 @@ $result = $stmt->get_result();
             <?php endif; ?>
         </div>
     </div>
-
+<?php include "../utils/exit_button.php" ?>
 </body>
 </html>
 

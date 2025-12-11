@@ -131,6 +131,6 @@ if ($profile) {
 
 <script src="../assets/js/profile.js">
 </script>
-
+<?php include "../utils/exit_button.php" ?>
 </body>
 </html>

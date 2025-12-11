@@ -78,7 +78,7 @@ body.register-body {
 /* Row for Name fields */
 .form-row {
     display: flex;
-    gap: 15px;
+    gap: 50px;
 }
 .form-row .input-group {
     flex: 1;

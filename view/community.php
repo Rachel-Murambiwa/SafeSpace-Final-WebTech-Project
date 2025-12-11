@@ -186,5 +186,6 @@ $result = $conn->query($sql);
     </div>
 
     <script src="../assets/js/community.js"></script>
+<?php include "../utils/exit_button.php" ?>
 </body>
 </html>

@@ -8,29 +8,39 @@
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <h1>SafeSpace</h1>
-                <span>Where healing begins</span>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#mission">Mission</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="view/login.php" class="btn-login">Login</a></li>
-                    <li><a href="view/register.php" class="btn-join">Join Now</a></li>
-                </ul>
-            </nav>
+   <header class="navbar">
+    <div class="container nav-container">
+        
+        <div class="logo">
+            <h1>SafeSpace</h1>
+            <span>Where healing begins</span>
         </div>
-    </header>
+
+        <button class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="view/login.php" class="btn-login">Login</a></li>
+                <li><a href="view/register.php" class="btn-join">Join Now</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
 
     <section id="home" class="hero">
         <div class="container hero-content">
             <h2>Welcome to SafeSpace</h2>
-            <p>A safe haven where women can share, heal, and grow—strengthened by community and free from judgment.</p>
+            <p>A safe haven where women can share, heal, and grow, 
+                strengthened by community and free from judgment.</p>
             <div class="hero-btns">
                 <a href="view/register.php" class="btn btn-primary">Join Community</a>
                 <a href="#about" class="btn btn-outline">Learn More</a>
@@ -41,7 +51,9 @@
     <section id="mission" class="mission">
         <div class="container">
             <h2>Our Mission</h2>
-            <p>SafeSpace is dedicated to creating a supportive environment where women can openly share their experiences, find comfort in community, and embark on their healing journey without fear.</p>
+            <p>SafeSpace is dedicated to creating a supportive environment 
+                where women can openly share their experiences, find comfort in community, 
+                and embark on their healing journey without fear.</p>
         </div>
     </section>
 
@@ -56,7 +68,8 @@
                 <div class="card">
                     <div class="icon">💜</div>
                     <h3>Depression Support</h3>
-                    <p>A gentle place to share the weight you are carrying. You are not alone in the darkness.</p>
+                    <p>A gentle place to share the weight you are carrying. 
+                        You are not alone in the darkness.</p>
                 </div>
                 <div class="card">
                     <div class="icon">💔</div>
@@ -91,7 +104,8 @@
         <div class="container split-layout">
             <div class="about-text">
                 <h2>About SafeSpace</h2>
-                <p>We believe that healing happens in community. Every woman deserves a safe place to be vulnerable.</p>
+                <p>We believe that healing happens in community. 
+                    Every woman deserves a safe place to be vulnerable.</p>
                 <div class="stats">
                     <div><strong>1000+</strong><br>Women</div>
                     <div><strong>24/7</strong><br>Support</div>
@@ -123,7 +137,7 @@
             <div class="contact-info">
                 <h2>Get in Touch</h2>
                 <p>We are here to listen. Your privacy is our priority.</p>
-                <p>📧 support@safespace.com</p>
+                <p>📧 safespace@gmail.com</p>
                 <p>📞 1-800-SAFESPACE</p>
             </div>
             <div class="contact-form">
@@ -131,7 +145,7 @@
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
                     <textarea rows="4" placeholder="How can we help?"></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn-primary">Send Message</button>
                 </form>
             </div>
         </div>
@@ -142,6 +156,7 @@
             <p>&copy; 2024 SafeSpace. Made with 💜 for healing and hope.</p>
         </div>
     </footer>
-
+<script src = "assets/js/script.js"></script>
+<?php include 'utils/exit_button.php'; ?>
 </body>
 </html>
