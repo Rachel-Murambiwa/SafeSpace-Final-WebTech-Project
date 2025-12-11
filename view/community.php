@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // 1. Fetch Posts Joined with Profile Info
-$sql = "SELECT p.post_id, p.content, p.created_at, pr.anonymous_username, pr.avatar_color 
+$sql = "SELECT p.post_id, p.content, p.created_at, p.image_url, pr.anonymous_username, pr.avatar_color 
         FROM public_posts_safespace p
         JOIN profiles_safespace pr ON p.profile_id = pr.profile_id
         ORDER BY p.created_at DESC";
@@ -40,26 +40,26 @@ $result = $conn->query($sql);
     <div class="container feed-container">
         
         <div class="create-post-card">
-                    <form action="../actions/add_post.php" method="POST" enctype="multipart/form-data">
-            <div class="input-row">
-                <div class="avatar-small" style="background: <?php echo $_SESSION['avatar_color'] ?? '#ccc'; ?>">
-                    <?php echo strtoupper(substr($_SESSION['anonymous_username'] ?? 'U', 0, 1)); ?>
+            <form action="../actions/add_post.php" method="POST" enctype="multipart/form-data">
+                <div class="input-row">
+                    <div class="avatar-small" style="background: <?php echo $_SESSION['avatar_color'] ?? '#ccc'; ?>">
+                        <?php echo strtoupper(substr($_SESSION['anonymous_username'] ?? 'U', 0, 1)); ?>
+                    </div>
+                    <textarea name="content" placeholder="Share your story or thoughts..."></textarea>
                 </div>
-                <textarea name="content" placeholder="Share your story or thoughts..."></textarea>
-            </div>
 
-            <div id="preview-container" class="preview-grid"></div>
-            
-            <div class="actions-row">
-                <label for="file-upload" class="custom-file-upload">
-                    <i class="fa fa-image"></i> Add Photo
-                </label>
+                <div id="preview-container" class="preview-grid"></div>
                 
-                <input id="file-upload" type="file" name="post_images[]" multiple accept="image/*" style="display:none;" onchange="handleFiles(this)">
-                
-                <button type="submit" class="btn-post">Post</button>
-            </div>
-        </form>
+                <div class="actions-row">
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fa fa-image"></i> Add Photo
+                    </label>
+                    
+                    <input id="file-upload" type="file" name="post_images[]" multiple accept="image/*" style="display:none;" onchange="handleFiles(this)">
+                    
+                    <button type="submit" class="btn-post">Post</button>
+                </div>
+            </form>
         </div>
 
         <?php if ($result->num_rows > 0): ?>
@@ -106,28 +106,24 @@ $result = $conn->query($sql);
                     <?php endif; ?>
 
                     <?php
-                    // 1. Get Like Count
-                    $post_id = $row['post_id'];
+                    // Get Like Count
                     $sql_likes = "SELECT COUNT(*) as count FROM reactions_safespace WHERE post_id = $post_id";
                     $res_likes = $conn->query($sql_likes);
                     $row_likes = $res_likes->fetch_assoc();
                     $like_count = $row_likes['count'];
 
-                    // 2. Check if CURRENT user liked this
-                    // We need the current user's profile_id first (fetched once at top of page ideally, but here works)
+                    // Check if CURRENT user liked this
                     $curr_user_id = $_SESSION['user_id'];
                     $sql_check_like = "SELECT reaction_id FROM reactions_safespace 
-                                    WHERE post_id = $post_id 
-                                    AND profile_id = (SELECT profile_id FROM profiles_safespace WHERE user_id = $curr_user_id)";
+                                       WHERE post_id = $post_id 
+                                       AND profile_id = (SELECT profile_id FROM profiles_safespace WHERE user_id = $curr_user_id)";
                     $res_check = $conn->query($sql_check_like);
                     $user_liked = ($res_check->num_rows > 0);
                     ?>
 
                     <div class="post-actions">
-                        
                         <form action="../actions/react_post.php" method="POST" style="display:inline;">
                             <input type="hidden" name="post_id" value="<?php echo $row['post_id']; ?>">
-                            
                             <button type="submit" class="action-btn <?php echo $user_liked ? 'liked-active' : ''; ?>">
                                 <i class="<?php echo $user_liked ? 'fas' : 'far'; ?> fa-heart"></i> 
                                 <?php echo ($like_count > 0) ? $like_count : 'Like'; ?>
@@ -141,60 +137,75 @@ $result = $conn->query($sql);
 
                     <div id="comments-<?php echo $row['post_id']; ?>" class="comment-section" style="display:none;">
     
-    <?php
-    $current_post_id = $row['post_id'];
-    $sql_comments = "SELECT c.content, c.created_at, pr.anonymous_username, pr.avatar_color 
-                     FROM comments_safespace c
-                     JOIN profiles_safespace pr ON c.profile_id = pr.profile_id
-                     WHERE c.post_id = $current_post_id
-                     ORDER BY c.created_at ASC";
-    $result_comments = $conn->query($sql_comments);
-    ?>
+                        <?php
+                        $sql_comments = "SELECT c.comment_id, c.content, c.created_at, pr.anonymous_username, pr.avatar_color 
+                                         FROM comments_safespace c
+                                         JOIN profiles_safespace pr ON c.profile_id = pr.profile_id
+                                         WHERE c.post_id = $post_id
+                                         ORDER BY c.created_at ASC";
+                        $result_comments = $conn->query($sql_comments);
+                        ?>
 
-    <div class="comments-list">
-        <?php if ($result_comments->num_rows > 0): ?>
-            <?php while($comment = $result_comments->fetch_assoc()): ?>
-               <div class="single-comment">
-                <span class="comment-avatar" style="background: <?php echo $comment['avatar_color']; ?>">
-                    <?php echo strtoupper(substr($comment['anonymous_username'], 0, 1)); ?>
-                </span>
-                
-                <div class="comment-body">
-                    <div style="display: flex; justify-content: space-between; align-items: center; min-width: 200px;">
-                        <span class="comment-user"><?php echo htmlspecialchars($comment['anonymous_username']); ?></span>
-                        
-                        <a href="../actions/flag_comment.php echo $comment['comment_id']; ?>" 
-                        class="btn-flag" 
-                        title="Report this comment"
-                        onclick="return confirm('Are you sure you want to report this comment?');">
-                        <i class="far fa-flag"></i>
-                        </a>
+                        <div class="comments-list">
+                            <?php if ($result_comments->num_rows > 0): ?>
+                                <?php while($comment = $result_comments->fetch_assoc()): ?>
+                                    <div class="single-comment">
+                                        <span class="comment-avatar" style="background: <?php echo $comment['avatar_color']; ?>">
+                                            <?php echo strtoupper(substr($comment['anonymous_username'], 0, 1)); ?>
+                                        </span>
+                                        
+                                        <div class="comment-body">
+                                            <div style="display: flex; justify-content: space-between; align-items: center; min-width: 200px;">
+                                                <span class="comment-user"><?php echo htmlspecialchars($comment['anonymous_username']); ?></span>
+                                                
+                                                <button type="button" 
+                                                        class="btn-flag" 
+                                                        onclick="openFlagModal(<?php echo $comment['comment_id']; ?>)"
+                                                        style="background:none; border:none; cursor:pointer; color:#ccc;"
+                                                        title="Report this comment">
+                                                    <i class="far fa-flag"></i>
+                                                </button>
+                                            </div>
+                                            <span class="comment-text"><?php echo htmlspecialchars($comment['content']); ?></span>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <p style="font-size: 0.8rem; color: #888; font-style: italic;">No comments yet.</p>
+                            <?php endif; ?>
+                        </div>
+
+                        <form action="../actions/add_comment.php" method="POST" style="margin-top: 15px; display: flex;">
+                            <input type="hidden" name="post_id" value="<?php echo $row['post_id']; ?>">
+                            <input type="text" name="comment_text" placeholder="Write a supportive comment..." required style="flex: 1;">
+                            <button type="submit" class="btn-tiny">Send</button>
+                        </form>
                     </div>
 
-                    <span class="comment-text"><?php echo htmlspecialchars($comment['content']); ?></span>
-                </div>
-</div>
+                </div> 
             <?php endwhile; ?>
-        <?php else: ?>
-            <p style="font-size: 0.8rem; color: #888; font-style: italic;">No comments yet. Be the first!</p>
-        <?php endif; ?>
-    </div>
-
-    <form action="../actions/add_comment.php" method="POST" style="margin-top: 15px; display: flex;">
-        <input type="hidden" name="post_id" value="<?php echo $row['post_id']; ?>">
-        <input type="text" name="comment_text" placeholder="Write a supportive comment..." required style="flex: 1;">
-        <button type="submit" class="btn-tiny">Send</button>
-    </form>
-</div>
-
-                </div> <?php endwhile; ?>
         <?php else: ?>
             <p style="text-align:center; color:#777;">No stories yet. Be the first to share! 🌸</p>
         <?php endif; ?>
 
     </div>
 
-    <script src="../assets/js/community.js"></script>
-<?php include "../utils/exit_button.php" ?>
+    <div id="flagModal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h3 style="color: #e74c3c;">Report Comment?</h3>
+            <p>Are you sure you want to flag this comment for moderation?</p>
+            
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeFlagModal()">Cancel</button>
+                <a id="confirmFlagBtn" href="#" class="btn-confirm-delete" style="background: #e74c3c; color: white;">
+                    Yes, Report
+                </a>
+            </div>
+        </div>
+    </div>
+
+<?php include "../utils/exit_button.php" ?>   
+<script src="../assets/js/community.js"></script>
+
 </body>
 </html>
