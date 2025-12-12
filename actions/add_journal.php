@@ -4,7 +4,7 @@ require '../db/config.php';
 
 // 1. Security Check: Must be logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../view/login.html");
+    header("Location: ../view/login.php");
     exit();
 }
 

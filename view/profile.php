@@ -3,7 +3,7 @@ session_start();
 require '../db/config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit();
 }
 
@@ -42,25 +42,60 @@ if ($profile) {
     <link rel="stylesheet" href="../assets/css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .profile-header { background: white; padding: 30px; text-align: center; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .avatar-large { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; }
+        .profile-header { 
+            background: white; 
+            padding: 30px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        }
+        .avatar-large { 
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+            margin: 0 auto 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 3rem; 
+            color: white; 
+        }
         
-        .btn-edit { background: #FFD700; color: #333; padding: 5px 15px; border-radius: 15px; text-decoration: none; font-size: 0.9rem; font-weight: bold; margin-right: 10px; }
-        .btn-delete { background: #e74c3c; color: white; padding: 5px 15px; border-radius: 15px; border: none; font-size: 0.9rem; font-weight: bold; cursor: pointer; }
+        .btn-edit { 
+            background: #FFD700; 
+            color: #333; 
+            padding: 5px 15px; 
+            border-radius: 15px; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+            margin-right: 10px; 
+        }
+        .btn-delete { 
+            background: #e74c3c; 
+            color: white; 
+            padding: 5px 15px; 
+            border-radius: 15px; 
+            border: none; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+            cursor: pointer;
+         }
         
-        /* New Button Style for Password */
+    
         .btn-password { 
             background: #333; color: white; padding: 8px 20px; border-radius: 20px; 
             text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; cursor: pointer; 
         }
         .btn-password:hover { background: #555; }
 
-        /* Form Inputs in Modal */
+    
         .modal-input {
             width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;
         }
         
-        /* Alerts */
+        
         .alert { padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center; }
         .alert-success { background: #d4edda; color: #155724; }
         .alert-danger { background: #f8d7da; color: #721c24; }
@@ -127,7 +162,7 @@ if ($profile) {
                     <div class="carousel-container">
                         <div class="carousel-slide" id="carousel-<?php echo $post_id; ?>">
                             <?php foreach($images as $index => $image): ?>
-                                <img src="../assets/uploads/<?php echo $image; ?>" 
+                                <img src="../../uploads/<?php echo $image; ?>" 
                                      class="carousel-img <?php echo $index === 0 ? 'active' : ''; ?>" 
                                      data-index="<?php echo $index; ?>">
                             <?php endforeach; ?>

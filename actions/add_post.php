@@ -3,7 +3,7 @@ session_start();
 require '../db/config.php';
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['anonymous_username'])) {
-    header("Location: ../view/login.html");
+    header("Location: ../view/login.php");
     exit();
 }
 
@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // 3. Handle Multiple Images (Max 10)
         if (isset($_FILES['post_images'])) {
-            $target_dir = "../assets/uploads/";
+            // $target_dir = "../assets/uploads/";
+            $target_dir = "../../uploads/";
             if (!file_exists($target_dir)) mkdir($target_dir, 0777, true);
 
             $total_files = count($_FILES['post_images']['name']);

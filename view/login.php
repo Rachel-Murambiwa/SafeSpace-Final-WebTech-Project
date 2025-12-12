@@ -34,8 +34,7 @@
                 <button type="submit" class="btn-primary login-btn">Enter SafeSpace</button>
                 
                 <p class="auth-footer">
-                    New here? <a href="register.html">Create an anonymous account</a> <br>
-                    <a href="#" class="forgot-pass">Forgot Password?</a>
+                    New here? <a href="register.php">Create an anonymous account</a> <br>
                 </p>
             </form>
         </div>

@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
-    // --- 1. SELECT ELEMENTS ---
+   
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm-password'); // FIXED ID
     const form = document.querySelector('.register-form');
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         special: document.getElementById('req-special')
     };
 
-    // --- 2. DEFINE PATTERNS ---
     const patterns = {
         length: /.{8,}/,
         upper: /[A-Z]/,
@@ -24,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         special: /[\W_]/ // Matches symbols and underscores
     };
 
-    // --- 3. PASSWORD VALIDATION (Real-time) ---
+
     if (passwordInput) {
         passwordInput.addEventListener('input', function() {
             const value = passwordInput.value;
@@ -45,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- 4. CONFIRM PASSWORD CHECKER ---
+    
     function checkMatch() {
         if (!matchMessage || !passwordInput || !confirmPasswordInput) return;
 
@@ -71,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmPasswordInput.addEventListener('input', checkMatch);
     }
 
-    // --- 5. FORM SUBMISSION ---
+    
     if (form) {
         form.addEventListener('submit', function(event) {
             // Check Match
@@ -90,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- 6. URL SUCCESS CHECK ---
     // Check if URL has ?success=true
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {

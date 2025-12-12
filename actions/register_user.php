@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($password !== $confirm_password) {
-        echo "<script>alert('Error: Passwords do not match.'); window.history.back();</script>";
+        header("Location: ../view/register.php?error=password_mismatch");
         exit();
     }
 
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $checkEmail->store_result();
 
     if ($checkEmail->num_rows > 0) {
-        echo "<script>alert('Error: This email is already registered. Please Log In.'); window.location.href='../view/login.html';</script>";
+        echo "<script>alert('Error: This email is already registered. Please Log In.'); window.location.href='../view/login.php';</script>";
         exit();
     }
     $checkEmail->close();

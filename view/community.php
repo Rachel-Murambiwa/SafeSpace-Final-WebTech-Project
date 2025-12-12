@@ -4,7 +4,7 @@ require '../db/config.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit();
 }
 
@@ -92,7 +92,7 @@ $result = $conn->query($sql);
                         <div class="carousel-container">
                             <div class="carousel-slide" id="carousel-<?php echo $post_id; ?>">
                                 <?php foreach($images as $index => $image): ?>
-                                    <img src="../assets/uploads/<?php echo $image; ?>" 
+                                    <img src="../../uploads/<?php echo $image; ?>" 
                                          class="carousel-img <?php echo $index === 0 ? 'active' : ''; ?>" 
                                          data-index="<?php echo $index; ?>">
                                 <?php endforeach; ?>

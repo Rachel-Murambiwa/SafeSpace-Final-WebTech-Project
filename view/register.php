@@ -49,10 +49,9 @@
               <option value="Central African Republic">Central African Republic</option>
               <option value="Chad">Chad</option>
               <option value="Comoros">Comoros</option>
-              <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
-              <option value="Congo, Republic of the">Congo, Republic of the</option>
               <option value="Cote d'Ivoire">Cote d'Ivoire</option>
               <option value="Djibouti">Djibouti</option>
+              <option value="DRC">DRC</option>
               <option value="Egypt">Egypt</option>
               <option value="Equatorial Guinea">Equatorial Guinea</option>
               <option value="Eritrea">Eritrea</option>
@@ -122,7 +121,7 @@
         <p id="success-message"></p>
         
         <p class="auth-footer" style="margin-top: 20px; text-align: center;">
-            Already have an account? <a href="login.html" 
+            Already have an account? <a href="login.php" 
             style="color: #2A7F86; font-weight: bold;">Login here</a>
         </p>
       </form>

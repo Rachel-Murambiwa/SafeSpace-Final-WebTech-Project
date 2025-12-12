@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require '../db/config.php';
 
@@ -64,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['log_mood'])) {
     $c_stmt->execute();
     
     if ($c_stmt->get_result()->num_rows == 0) {
-        $ins_sql = "INSERT INTO mood_log (user_id, mood_value, mood_label) VALUES (?, ?, ?)";
+        $ins_sql = "INSERT INTO mood_log (user_id, mood_value, mood_label, entry_date) VALUES (?, ?, ?, CURDATE())";
         $i_stmt = $conn->prepare($ins_sql);
         $i_stmt->bind_param("iis", $user_id, $mood_val, $mood_lbl);
         $i_stmt->execute();

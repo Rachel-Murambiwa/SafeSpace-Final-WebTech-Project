@@ -1,13 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";       
-$password = "";           
-$dbname = "safespace"; 
+$host = "localhost";
+$user = "root";        
+$password = "";        
+$database = "safespace";  
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($host, $user, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
+
