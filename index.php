@@ -123,10 +123,18 @@
                 <h2>Helpful Resources</h2>
             </div>
             <div class="grid-4">
-                <div class="resource-card">📚 Self-Help Guides</div>
-                <div class="resource-card">🎧 Meditation</div>
-                <div class="resource-card">📞 Crisis Hotlines</div>
-                <div class="resource-card">💬 Community Forums</div>
+                <a href="resources_list.php?cat_id=2" class="resource-card" style="text-decoration: none; color: inherit;">
+                    📚 Self-Help Guides
+                </a>
+                <a href="resources_list.php?cat_id=3" class="resource-card" style="text-decoration: none; color: inherit;">
+                    🧠 Professional Help
+                </a>
+                <a href="resources_list.php?cat_id=1" class="resource-card" style="text-decoration: none; color: inherit;">
+                    📞 Crisis Hotlines
+                </a>
+                <a href="resources_list.php?cat_id=4" class="resource-card" style="text-decoration: none; color: inherit;">
+                    💬 Community Groups
+                </a>
             </div>
         </div>
     </section>
