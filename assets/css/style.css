@@ -187,10 +187,38 @@ ul { list-style: none; }
     flex: 1;
     width:100%;
 }
-.about-visual { 
-    flex: 1;
+/* --- 1. Mobile First Styles (Default) --- */
+.about-visual {
+    width: 100%;        /* Full width on phone */
+    height: 300px;      /* Fixed height so it doesn't vanish */
+    overflow: hidden;
+    border-radius: 15px;
+    margin-top: 20px;   /* Space between text and image on mobile */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Optional: Nice shadow */
+}
+
+.visual-img {
     width: 100%;
-    height: auto; 
+    height: 100%;
+    object-fit: cover;    /* Ensures image covers area without stretching */
+    object-position: center; /* Focuses on the center of the photo */
+    display: block;
+}
+
+/* --- 2. Laptop/Desktop Styles (Screens wider than 768px) --- */
+@media (min-width: 768px) {
+    /* Assuming this is inside a Flex parent */
+    .about-visual {
+        flex: 1;              /* Share space equally with text */
+        height: auto;         /* let it grow with the content */
+        min-height: 450px;    /* Taller image for laptop */
+        margin-top: 0;        /* Remove mobile margin */
+        
+        /* Centering Logic */
+        display: flex;         
+        justify-content: center; 
+        align-items: center;  
+    }
 }
 .about-text h2 { color: #00BCD4; font-size: 2.5rem; margin-bottom: 20px; }
 

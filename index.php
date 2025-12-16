@@ -112,10 +112,9 @@
                     <div><strong>100%</strong><br>Private</div>
                 </div>
             </div>
-            <div class="about-visual">
-                <div class="placeholder-box">🌺</div>
+          <div class="about-visual">
+                <img src="assets/images/peace.jpeg" alt="About SafeSpace" class="visual-img">
             </div>
-        </div>
     </section>
 
     <section id="resources" class="resources">
