@@ -1,0 +1,62 @@
+# SafeSpace - Mental Health Support Platform
+
+SafeSpace is a web-based mental wellness platform designed to provide African women with a secure, supportive, and judgment-free environment where they can express their emotions, reflect on personal experiences, and begin their healing journey. The platform centers around private journaling, allowing users to document their thoughts, moods, and experiences in a personal space that remains confidential, while also offering the option to share selected stories anonymously within a supportive community. By using pseudonyms instead of real identities, SafeSpace protects user privacy and encourages honest emotional expression without fear of stigma or exposure. The platform promotes mental wellness, emotional healing, and personal growth through reflection, empathy, and gentle community interaction, making it especially valuable for individuals navigating stress, heartbreak, or emotional challenges. Ultimately, SafeSpace aims to serve as a digital sanctuary where users feel heard, supported, and empowered to heal and grow at their own pace.
+
+**Live Website:** [http://169.239.251.102:341/~rachel.murambiwa/SafeSpace-Final-WebTech-Project/]
+
+## Project Description
+
+In many communities, mental health struggles are stigmatized, preventing individuals from seeking help. **SafeSpace** solves this by decoupling a user's real identity from their public profile.
+
+### Key Features
+* **Anonymous Community Feed:** Share stories and offer support using an alias (e.g., "HopefulStar") while your real data remains encrypted.
+* **Mood Tracker & Analytics:** Log daily emotions and visualize mental health trends over time using a dynamic Line Graph (Chart.js).
+* **Role-Based Access Control (RBAC):** Distinct interfaces and permissions for **General Users** and **Admins**.
+* **Moderation System:** Community-driven comment flagging system allowing Admins to review and delete inappropriate content.
+* **Emergency "Quick Exit":** A safety feature that instantly redirects the user to a neutral site (Google) to protect privacy in unsafe physical environments.
+
+---
+
+## Technical Stack
+
+* **Frontend:** HTML5, CSS3 (Custom Responsive Design), JavaScript (Vanilla ES6+).
+* **Backend:** PHP 8.2 (Procedural & Object-Oriented).
+* **Database:** MySQL (Relational Database).
+* **Visualization Library:** Chart.js (for Mood Analytics).
+* **Deployment:** Apache Server (deployed via Cyberduck).
+
+---
+
+## Setup & Installation (Localhost)
+
+To run this project on your local machine:
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/Rachel-Murambiwa/SafeSpace-Final-WebTech-Project.git]
+    ```
+2.  **Move to Server Root:**
+    * Copy the project folder into your server's root directory (e.g., `htdocs` for XAMPP).
+3.  **Import Database:**
+    * Open **phpMyAdmin** (`http://localhost/phpmyadmin`).
+    * Create a new database named `safespace`.
+    * Import the `safespace.sql` file located in the root of this repository.
+4.  **Configure Credentials:**
+    * Check `db/config.php` and ensure the `$password` and `$username` match your local SQL setup (default is usually `root` / empty).
+5.  **Run:**
+    * Open your browser and navigate to `http://169.239.251.102:341/~rachel.murambiwa/SafeSpace-Final-WebTech-Project/`.
+
+
+## Project Structure
+
+SafeSpace/
+├── actions/           # PHP scripts for handling forms (register, login, post, etc.)
+├── assets/            # Static files (CSS, Images, JavaScript)
+├── db/                # Database configuration and SQL dump files
+├── utils/             # Reusable PHP snippets
+├── view/              # The actual pages users see
+│   ├── admin/         # Admin Dashboard (Protected)
+│   ├── dashboard.php  # User Home & Mood Tracker
+│   ├── community.php  # Public Feed
+│   └── ...
+└── README.md          # Project Documentation

@@ -146,7 +146,37 @@
 .journal-card h4 { margin: 0 0 10px 0; color: #333; }
 .journal-card p { color: #555; font-size: 0.95rem; white-space: pre-line; }
 
-/* Responsive */
-@media (max-width: 800px) {
-    .journal-container { flex-direction: column; }
+
+@media (max-width: 850px) {
+    .journal-container { 
+        flex-direction: column; 
+        gap: 30px; 
+        margin-top: 15px;
+        padding: 0 15px; 
+    }
+
+    .journal-editor, 
+    .journal-history {
+        width: 100%;
+        flex: none; 
+    }
+
+    .paper-sheet {
+        padding: 20px; 
+    }
+
+    .mood-grid {
+        justify-content: center;
+        gap: 8px; 
+    }
+    
+    .mood-grid label {
+        width: 42px;
+        height: 42px;
+        font-size: 1.4rem;
+    }
+
+    .journal-title, .journal-content {
+        font-size: 16px; 
+    }
 }
