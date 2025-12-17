@@ -252,3 +252,9 @@
         transform: rotate(45deg) translate(-5px, -6px); 
     }
 }
+
+body, html {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
