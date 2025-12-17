@@ -38,9 +38,9 @@
 
     <section id="home" class="hero">
         <div class="container hero-content">
-            <h2>Welcome to SafeSpace</h2>
-            <p>A safe haven where women can share, heal, and grow, 
-                strengthened by community and free from judgment.</p>
+            <h1>Welcome to SafeSpace</h1>
+            <p><strong>A safe haven where women can share, heal, and grow, 
+                strengthened by community and free from judgment.</strong></p>
             <div class="hero-btns">
                 <a href="view/register.php" class="btn btn-outline">Join Community</a>
                 <a href="#about" class="btn btn-outline">Learn More</a>
@@ -113,7 +113,7 @@
                 </div>
             </div>
           <div class="about-visual">
-                <img src="assets/images/peace.jpeg" alt="About SafeSpace" class="visual-img">
+                <img src="assets/images/peace.jpg" alt="About SafeSpace" class="visual-img">
             </div>
     </section>
 
@@ -145,18 +145,42 @@
                 <h2>Get in Touch</h2>
                 <p>We are here to listen. Your privacy is our priority.</p>
                 <p>📧 safespace@gmail.com</p>
-                <p>📞 +233 596651013</p>
-            </div>
-            <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="4" placeholder="How can we help?"></textarea>
-                    <button type="submit" class="btn-outline">Send Message</button>
-                </form>
+                <p>📞 +233 596651013</p>  
             </div>
         </div>
     </section>
+
+            <div class="testimonials-section">
+            <h3 style="text-align: center; 
+                        color: #555; 
+                        margin-bottom: 30px;">
+                        What Our Community Says 💜
+                    </h3>
+            <div class="testimonials-grid">
+            <div class="testi-card">
+                <div class="testi-avatar">🌺</div>
+                <p class="testi-text">"I finally found a place where I don't have to pretend to be okay. The journaling tool is a lifesaver."</p>
+                <span class="testi-author">- Anonymous User</span>
+            </div>
+
+            <div class="testi-card">
+                <div class="testi-avatar">🦋</div>
+                <p class="testi-text">"Reading other women's stories made me realize I'm not alone. This community is truly a safe space."</p>
+                <span class="testi-author">- Hopeful_Girl22</span>
+            </div>
+
+            <div class="testi-card">
+                <div class="testi-avatar">✨</div>
+                <p class="testi-text">"The mood tracker helped me identify my anxiety triggers. Highly recommend this to everyone."</p>
+                <span class="testi-author">- Sarah M.</span>
+            </div>
+            <div class="testi-card">
+                <div class="testi-avatar">🌸</div>
+                <p class="testi-text">"I am very grateful for SafeSpace. It came when I needed it most."</p>
+                <span class="testi-author">- PowerWoman.</span>
+            </div>
+        </div>
+        </div>
 
     <footer>
         <div class="container">
