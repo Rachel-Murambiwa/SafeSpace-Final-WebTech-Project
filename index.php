@@ -123,16 +123,16 @@
                 <h2>Helpful Resources</h2>
             </div>
             <div class="grid-4">
-                <a href="resources_list.php?cat_id=2" class="resource-card" style="text-decoration: none; color: inherit;">
+                <a href="view/resources_list.php?category_id=2" class="resource-card" style="text-decoration: none; color: inherit;">
                     📚 Self-Help Guides
                 </a>
-                <a href="resources_list.php?cat_id=3" class="resource-card" style="text-decoration: none; color: inherit;">
+                <a href="view/resources_list.php?category_id=3" class="resource-card" style="text-decoration: none; color: inherit;">
                     🧠 Professional Help
                 </a>
-                <a href="resources_list.php?cat_id=1" class="resource-card" style="text-decoration: none; color: inherit;">
+                <a href="view/resources_list.php?category_id=1" class="resource-card" style="text-decoration: none; color: inherit;">
                     📞 Crisis Hotlines
                 </a>
-                <a href="resources_list.php?cat_id=4" class="resource-card" style="text-decoration: none; color: inherit;">
+                <a href="view/resources_list.php?category_id=4" class="resource-card" style="text-decoration: none; color: inherit;">
                     💬 Community Groups
                 </a>
             </div>
@@ -145,7 +145,7 @@
                 <h2>Get in Touch</h2>
                 <p>We are here to listen. Your privacy is our priority.</p>
                 <p>📧 safespace@gmail.com</p>
-                <p>📞 1-800-SAFESPACE</p>
+                <p>📞 +233 596651013</p>
             </div>
             <div class="contact-form">
                 <form>
@@ -160,7 +160,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 SafeSpace. Made with 💜 for healing and hope.</p>
+            <p>&copy; 2025 SafeSpace. Made with 💜 for healing and hope.</p>
         </div>
     </footer>
 <script src = "assets/js/script.js"></script>

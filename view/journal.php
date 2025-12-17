@@ -22,19 +22,27 @@ $result = $stmt->get_result();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Journal - SafeSpace</title>
     <link rel="stylesheet" href="../assets/css/community.css"> <link rel="stylesheet" href="../assets/css/journal.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="container">
+        <div class="container nav-container">
             <h1 class="logo">SafeSpace 💜</h1>
-            <div class="nav-links">
+            
+            <div class="nav-links" id="navLinks">
                 <a href="dashboard.php">Dashboard</a>
                 <a href="community.php">Community</a>
                 <a href="profile.php">My Profile</a>
                 <a href="../actions/logout.php" class="btn-logout">Logout</a>
+            </div>
+
+            <div class="burger" onclick="toggleMenu()">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
         </div>
     </nav>
@@ -49,59 +57,57 @@ $result = $stmt->get_result();
                     <input type="text" name="title" class="journal-title" placeholder="Title of your thought..." required>
                     
                     <div class="mood-selector">
-            <label>How are you feeling right now?</label>
-                    <div class="mood-selector">
-                    <div class="mood-grid">
-                        <input type="radio" name="mood" value="Honest" id="m_honest"><label for="m_honest" title="Honest">😇</label>
-                        <input type="radio" name="mood" value="Exhilarated" id="m_exhil"><label for="m_exhil" title="Exhilarated">🤩</label>
-                        <input type="radio" name="mood" value="Inspired" id="m_insp"><label for="m_insp" title="Inspired">✨</label>
-                        <input type="radio" name="mood" value="Ecstatic" id="m_ecst"><label for="m_ecst" title="Ecstatic">😁</label>
-                        <input type="radio" name="mood" value="Delighted" id="m_delight"><label for="m_delight" title="Delighted">😄</label>
-                        <input type="radio" name="mood" value="Relieved" id="m_relieved"><label for="m_relieved" title="Relieved">😅</label>
+                    <label>How are you feeling right now?</label>
+                        <div class="mood-grid">
+                            <input type="radio" name="mood" value="Honest" id="m_honest"><label for="m_honest" title="Honest">😇</label>
+                            <input type="radio" name="mood" value="Exhilarated" id="m_exhil"><label for="m_exhil" title="Exhilarated">🤩</label>
+                            <input type="radio" name="mood" value="Inspired" id="m_insp"><label for="m_insp" title="Inspired">✨</label>
+                            <input type="radio" name="mood" value="Ecstatic" id="m_ecst"><label for="m_ecst" title="Ecstatic">😁</label>
+                            <input type="radio" name="mood" value="Delighted" id="m_delight"><label for="m_delight" title="Delighted">😄</label>
+                            <input type="radio" name="mood" value="Relieved" id="m_relieved"><label for="m_relieved" title="Relieved">😅</label>
 
-                        <input type="radio" name="mood" value="Amused" id="m_amused"><label for="m_amused" title="Amused">😂</label>
-                        <input type="radio" name="mood" value="Pleased" id="m_pleased"><label for="m_pleased" title="Pleased">🙂</label>
-                        <input type="radio" name="mood" value="Lucky" id="m_lucky"><label for="m_lucky" title="Lucky">🤞</label>
-                        <input type="radio" name="mood" value="Elated" id="m_elated"><label for="m_elated" title="Elated">🥳</label>
-                        <input type="radio" name="mood" value="Content" id="m_content"><label for="m_content" title="Content">😌</label>
-                        <input type="radio" name="mood" value="Loved" id="m_loved"><label for="m_loved" title="Loved">🥰</label>
+                            <input type="radio" name="mood" value="Amused" id="m_amused"><label for="m_amused" title="Amused">😂</label>
+                            <input type="radio" name="mood" value="Pleased" id="m_pleased"><label for="m_pleased" title="Pleased">🙂</label>
+                            <input type="radio" name="mood" value="Lucky" id="m_lucky"><label for="m_lucky" title="Lucky">🤞</label>
+                            <input type="radio" name="mood" value="Elated" id="m_elated"><label for="m_elated" title="Elated">🥳</label>
+                            <input type="radio" name="mood" value="Content" id="m_content"><label for="m_content" title="Content">😌</label>
+                            <input type="radio" name="mood" value="Loved" id="m_loved"><label for="m_loved" title="Loved">🥰</label>
 
-                        <input type="radio" name="mood" value="Enthusiastic" id="m_enth"><label for="m_enth" title="Enthusiastic">🙌</label>
-                        <input type="radio" name="mood" value="Romantic" id="m_rom"><label for="m_rom" title="Romantic">😘</label>
-                        <input type="radio" name="mood" value="Happy" id="m_happy" checked><label for="m_happy" title="Happy">😊</label>
-                        <input type="radio" name="mood" value="Secure" id="m_secure"><label for="m_secure" title="Secure">🔒</label>
-                        <input type="radio" name="mood" value="Satisfied" id="m_sat"><label for="m_sat" title="Satisfied">😋</label>
-                        <input type="radio" name="mood" value="Lively" id="m_live"><label for="m_live" title="Lively">💃</label>
+                            <input type="radio" name="mood" value="Enthusiastic" id="m_enth"><label for="m_enth" title="Enthusiastic">🙌</label>
+                            <input type="radio" name="mood" value="Romantic" id="m_rom"><label for="m_rom" title="Romantic">😘</label>
+                            <input type="radio" name="mood" value="Happy" id="m_happy" checked><label for="m_happy" title="Happy">😊</label>
+                            <input type="radio" name="mood" value="Secure" id="m_secure"><label for="m_secure" title="Secure">🔒</label>
+                            <input type="radio" name="mood" value="Satisfied" id="m_sat"><label for="m_sat" title="Satisfied">😋</label>
+                            <input type="radio" name="mood" value="Lively" id="m_live"><label for="m_live" title="Lively">💃</label>
 
-                        <input type="radio" name="mood" value="Silly" id="m_silly"><label for="m_silly" title="Silly">🤪</label>
-                        <input type="radio" name="mood" value="Disgusted" id="m_disg"><label for="m_disg" title="Disgusted">🤢</label>
-                        <input type="radio" name="mood" value="Grateful" id="m_grat"><label for="m_grat" title="Grateful">🙏</label>
-                        <input type="radio" name="mood" value="Embarrassed" id="m_emb"><label for="m_emb" title="Embarrassed">😳</label>
-                        <input type="radio" name="mood" value="Subdued" id="m_sub"><label for="m_sub" title="Subdued">😶</label>
-                        <input type="radio" name="mood" value="Confused" id="m_conf"><label for="m_conf" title="Confused">😕</label>
+                            <input type="radio" name="mood" value="Silly" id="m_silly"><label for="m_silly" title="Silly">🤪</label>
+                            <input type="radio" name="mood" value="Disgusted" id="m_disg"><label for="m_disg" title="Disgusted">🤢</label>
+                            <input type="radio" name="mood" value="Grateful" id="m_grat"><label for="m_grat" title="Grateful">🙏</label>
+                            <input type="radio" name="mood" value="Embarrassed" id="m_emb"><label for="m_emb" title="Embarrassed">😳</label>
+                            <input type="radio" name="mood" value="Subdued" id="m_sub"><label for="m_sub" title="Subdued">😶</label>
+                            <input type="radio" name="mood" value="Confused" id="m_conf"><label for="m_conf" title="Confused">😕</label>
 
-                        <input type="radio" name="mood" value="Speechless" id="m_speech"><label for="m_speech" title="Speechless">😶</label>
-                        <input type="radio" name="mood" value="Suspicious" id="m_susp"><label for="m_susp" title="Suspicious">🤨</label>
-                        <input type="radio" name="mood" value="Apathetic" id="m_apath"><label for="m_apath" title="Apathetic">😐</label>
-                        <input type="radio" name="mood" value="Peeved" id="m_peev"><label for="m_peev" title="Peeved">😒</label>
-                        <input type="radio" name="mood" value="Distracted" id="m_dist"><label for="m_dist" title="Distracted">🤯</label>
-                        <input type="radio" name="mood" value="Indifferent" id="m_indif"><label for="m_indif" title="Indifferent">🤷</label>
+                            <input type="radio" name="mood" value="Speechless" id="m_speech"><label for="m_speech" title="Speechless">😶</label>
+                            <input type="radio" name="mood" value="Suspicious" id="m_susp"><label for="m_susp" title="Suspicious">🤨</label>
+                            <input type="radio" name="mood" value="Apathetic" id="m_apath"><label for="m_apath" title="Apathetic">😐</label>
+                            <input type="radio" name="mood" value="Peeved" id="m_peev"><label for="m_peev" title="Peeved">😒</label>
+                            <input type="radio" name="mood" value="Distracted" id="m_dist"><label for="m_dist" title="Distracted">🤯</label>
+                            <input type="radio" name="mood" value="Indifferent" id="m_indif"><label for="m_indif" title="Indifferent">🤷</label>
 
-                        <input type="radio" name="mood" value="Shy" id="m_shy"><label for="m_shy" title="Shy">🙈</label>
-                        <input type="radio" name="mood" value="Sullen" id="m_sull"><label for="m_sull" title="Sullen">😔</label>
-                        <input type="radio" name="mood" value="Annoyed" id="m_annoy"><label for="m_annoy" title="Annoyed">😤</label>
-                        <input type="radio" name="mood" value="Awkward" id="m_awk"><label for="m_awk" title="Awkward">😬</label>
-                        <input type="radio" name="mood" value="Distressed" id="m_distr"><label for="m_distr" title="Distressed">😩</label>
-                        <input type="radio" name="mood" value="Miserable" id="m_mis"><label for="m_mis" title="Miserable">😭</label>
+                            <input type="radio" name="mood" value="Shy" id="m_shy"><label for="m_shy" title="Shy">🙈</label>
+                            <input type="radio" name="mood" value="Sullen" id="m_sull"><label for="m_sull" title="Sullen">😔</label>
+                            <input type="radio" name="mood" value="Annoyed" id="m_annoy"><label for="m_annoy" title="Annoyed">😤</label>
+                            <input type="radio" name="mood" value="Awkward" id="m_awk"><label for="m_awk" title="Awkward">😬</label>
+                            <input type="radio" name="mood" value="Distressed" id="m_distr"><label for="m_distr" title="Distressed">😩</label>
+                            <input type="radio" name="mood" value="Miserable" id="m_mis"><label for="m_mis" title="Miserable">😭</label>
 
-                        <input type="radio" name="mood" value="Hungry" id="m_hung"><label for="m_hung" title="Hungry">😋</label>
-                        <input type="radio" name="mood" value="Sleepy" id="m_sleep"><label for="m_sleep" title="Sleepy">😴</label>
-                        <input type="radio" name="mood" value="Ill" id="m_ill"><label for="m_ill" title="Ill">🤒</label>
-                        <input type="radio" name="mood" value="Injured" id="m_inj"><label for="m_inj" title="Injured">🤕</label>
-                        <input type="radio" name="mood" value="Queasy" id="m_queas"><label for="m_queas" title="Queasy">🥴</label>
-                        <input type="radio" name="mood" value="Nauseated" id="m_naus"><label for="m_naus" title="Nauseated">🤮</label>
-                    </div>
-</div>
+                            <input type="radio" name="mood" value="Hungry" id="m_hung"><label for="m_hung" title="Hungry">😋</label>
+                            <input type="radio" name="mood" value="Sleepy" id="m_sleep"><label for="m_sleep" title="Sleepy">😴</label>
+                            <input type="radio" name="mood" value="Ill" id="m_ill"><label for="m_ill" title="Ill">🤒</label>
+                            <input type="radio" name="mood" value="Injured" id="m_inj"><label for="m_inj" title="Injured">🤕</label>
+                            <input type="radio" name="mood" value="Queasy" id="m_queas"><label for="m_queas" title="Queasy">🥴</label>
+                            <input type="radio" name="mood" value="Nauseated" id="m_naus"><label for="m_naus" title="Nauseated">🤮</label>
+                        </div>
                     </div>
 
                     <textarea name="content" class="journal-content" placeholder="Write freely. This is private." required></textarea>
@@ -133,6 +139,18 @@ $result = $stmt->get_result();
         </div>
     </div>
 <?php include "../utils/exit_button.php" ?>
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('navLinks');
+        const burger = document.querySelector('.burger');
+        
+        // Slide the menu in/out
+        nav.classList.toggle('nav-active');
+        
+        // Animate the burger icon
+        burger.classList.toggle('toggle');
+    }
+</script>
 </body>
 </html>
 

@@ -67,6 +67,6 @@ $post = $result->fetch_assoc();
         </div>
     </form>
 </div>
-
+<?php include '../utils/exit_button.php'; ?>
 </body>
 </html>

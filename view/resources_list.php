@@ -3,12 +3,12 @@ session_start();
 require '../db/config.php';
 
 // 1. Get the Category ID from the URL (e.g., ?cat_id=1)
-if (!isset($_GET['cat_id'])) {
-    header("Location: dashboard.php");
+if (!isset($_GET['category_id'])) {
+    header("Location: ../index.php");
     exit();
 }
 
-$cat_id = intval($_GET['cat_id']);
+$cat_id = intval($_GET['category_id']);
 
 // 2. Fetch the Category Name (for the title)
 $cat_sql = "SELECT category_name FROM resource_categories_safespace WHERE category_id = ?";
@@ -70,13 +70,13 @@ $resources = $stmt->get_result();
     <div class="container">
         <h1 class="logo">SafeSpace 💜</h1>
         <div class="nav-links">
-            <a href="dashboard.php">Dashboard</a>
+            <a href="login.php">Login</a>
         </div>
     </div>
 </nav>
 
 <div class="resource-list-container">
-    <a href="dashboard.php" class="back-btn">← Back to Dashboard</a>
+    <a href="../index.php" class="back-btn">← Back to Home Page</a>
     
     <h1 style="margin-bottom: 30px; color: #2c3e50;">
         Category: <span style="color: #00BCD4;"><?php echo htmlspecialchars($page_title); ?></span>
@@ -106,6 +106,6 @@ $resources = $stmt->get_result();
     <?php endif; ?>
 
 </div>
-
+<?php include '../utils/exit_button.php'; ?>
 </body>
 </html>
