@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 2. Validation
     if (empty($content)) {
-        header("Location: ../view/community.php"); // Don't save empty comments
+        header("Location: ../view/community.php"); 
         exit();
     }
 

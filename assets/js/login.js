@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. Get the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const error = urlParams.get('error');
-    const signup = urlParams.get('signup'); // From the previous step
+    const signup = urlParams.get('signup'); 
     
     const msgElement = document.getElementById('login-message');
-    const successElement = document.getElementById('success-message'); // Ensure this ID exists if using success msg
+    const successElement = document.getElementById('success-message'); 
 
     if (msgElement) {
         // 2. Check for ERRORS

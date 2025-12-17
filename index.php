@@ -36,17 +36,20 @@
     </div>
 </header>
 
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1>Welcome to SafeSpace</h1>
-            <p><strong>A safe haven where women can share, heal, and grow, 
-                strengthened by community and free from judgment.</strong></p>
-            <div class="hero-btns">
-                <a href="view/register.php" class="btn btn-outline">Join Community</a>
-                <a href="#about" class="btn btn-outline">Learn More</a>
-            </div>
+  <section id="home" class="hero">
+    <video autoplay muted loop playsinline class="video-bg" preload="auto">
+        <source src="assets/videos/roses.mp4" type="video/mp4">
+    </video>
+    <div class="container hero-content">
+        <h1>Welcome to SafeSpace</h1>
+        <p><strong>A safe haven where women can share, heal, and grow, 
+            strengthened by community and free from judgment.</strong></p>
+        <div class="hero-btns">
+            <a href="view/register.php" class="btn btn-outline">Join Community</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="mission" class="mission">
         <div class="container">

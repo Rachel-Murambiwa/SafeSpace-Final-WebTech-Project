@@ -1,11 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-   
+document.addEventListener("DOMContentLoaded", function () {   
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm-password'); // FIXED ID
     const form = document.querySelector('.register-form');
     const matchMessage = document.getElementById('match-message');
     const msgElement = document.getElementById('success-message');
-
     const requirements = {
         length: document.getElementById('req-length'),
         upper: document.getElementById('req-upper'),
@@ -44,26 +42,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     
-    function checkMatch() {
-        if (!matchMessage || !passwordInput || !confirmPasswordInput) return;
+function checkMatch() {
+    if (!matchMessage || !passwordInput || !confirmPasswordInput) return;
 
-        const pass = passwordInput.value;
-        const confirm = confirmPasswordInput.value;
+    const pass = passwordInput.value;
+    const confirm = confirmPasswordInput.value;
 
-        if (confirm === "") {
-            matchMessage.textContent = "";
-            matchMessage.className = "";
-            return;
-        }
-
-        if (pass === confirm) {
-            matchMessage.textContent = "Passwords Match";
-            matchMessage.className = "match-success";
-        } else {
-            matchMessage.textContent = "Passwords Do Not Match";
-            matchMessage.className = "match-error";
-        }
+    if (confirm === "") {
+        matchMessage.textContent = "";
+        matchMessage.className = "";
+        return;
     }
+
+    if (pass === confirm) {
+        matchMessage.textContent = "Passwords Match";
+        matchMessage.className = "match-success";
+    } else {
+        matchMessage.textContent = "Passwords Do Not Match";
+        matchMessage.className = "match-error";
+    }
+}
 
     if (confirmPasswordInput) {
         confirmPasswordInput.addEventListener('input', checkMatch);
@@ -88,17 +86,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Check if URL has ?success=true
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        if (msgElement) {
-            msgElement.textContent = "Registered Successfully!";
-            msgElement.style.color = "#2ecc71"; 
-            msgElement.style.fontWeight = "bold";
-            msgElement.style.textAlign = "center";
-            msgElement.style.marginTop = "15px";
-            
-            if(form) form.reset();
-        }
+// Check if URL has ?success=true
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('success') === 'true') {
+    if (msgElement) {
+        msgElement.textContent = "Registered Successfully!";
+        msgElement.style.color = "#2ecc71"; 
+        msgElement.style.fontWeight = "bold";
+        msgElement.style.textAlign = "center";
+        msgElement.style.marginTop = "15px";
+        
+        if(form) form.reset();
     }
+}
 });
