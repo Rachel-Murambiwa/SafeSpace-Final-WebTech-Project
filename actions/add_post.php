@@ -29,11 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("iss", $profile_id, $title, $content);
     
     if ($stmt->execute()) {
-        $post_id = $stmt->insert_id; // Get the ID of the post we just created
+        $post_id = $stmt->insert_id; 
 
-        // 3. Handle Multiple Images (Max 10)
+        // 3. Handle Multiple Images 
         if (isset($_FILES['post_images'])) {
-            // $target_dir = "../assets/uploads/";
             $target_dir = "../../uploads/";
             if (!file_exists($target_dir)) mkdir($target_dir, 0777, true);
 

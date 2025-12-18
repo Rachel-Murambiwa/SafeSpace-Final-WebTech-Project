@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F9F6F0; /* Soft beige background */
+    background-color: #F9F6F0; 
 }
 
 .auth-body {
@@ -20,7 +20,7 @@ body {
     background: #FFFFFF;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    overflow: hidden; /* Keeps the rounded corners */
+    overflow: hidden; 
 }
 
 
@@ -31,10 +31,10 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    display: none; /* Hides on mobile */
+    display: none; 
 }
 
-/* Show visual side on larger screens */
+
 @media (min-width: 768px) {
     .auth-visual {
         display: flex;
@@ -42,7 +42,7 @@ body {
 }
 
 .overlay {
-    background: rgba(42, 127, 134, 0.85); /* Teal Overlay */
+    background: rgba(42, 127, 134, 0.85); 
     width: 100%;
     height: 100%;
     display: flex;
@@ -55,19 +55,19 @@ body {
 }
 
 .overlay h2 {
-    color: #FFB7B2; /* Pink Accent */
+    color: #FFB7B2; 
     font-size: 2.2rem;
     margin-bottom: 10px;
 }
 
 .auth-form-wrapper {
-    flex: 1; /* Takes up the other 50% */
+    flex: 1; 
     padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #FFFFFF;
-    text-align: center; /* Centers text headers */
+    text-align: center; 
 }
 
 .auth-header {
@@ -77,11 +77,11 @@ body {
 .logo {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #2A7F86; /* Teal */
+    color: #2A7F86; 
     margin: 0;
 }
 
-.dot { color: #FFB7B2; } /* Pink Dot */
+.dot { color: #FFB7B2; } 
 
 .auth-header h3 {
     color: #555;
@@ -93,7 +93,7 @@ body {
 
 .form-group {
     margin-bottom: 20px;
-    text-align: left; /* Aligns labels to left for readability */
+    text-align: left; 
 }
 
 label {
@@ -115,26 +115,24 @@ input[type="password"] {
     font-size: 1rem;
     outline: none;
     transition: all 0.3s ease;
-    box-sizing: border-box; /* Ensures padding doesn't break width */
+    box-sizing: border-box; 
 }
 
-/* Input Focus State */
 input:focus {
-    border-color: #2A7F86; /* Teal border on click */
+    border-color: #2A7F86; 
     background-color: #fff;
     box-shadow: 0 0 0 3px rgba(42, 127, 134, 0.1);
 }
 
-/* The Button Fix */
 .btn-primary {
     display: block;
     width: 100%;
     padding: 14px;
-    background-color: #FFB7B2; /* Pink Background */
-    color: #2C3E50; /* Dark Text */
+    background-color: #FFB7B2;
+    color: #2C3E50; 
     font-size: 1.1rem;
     font-weight: 700;
-    border: none; /* REMOVES THE UGLY BORDER */
+    border: none; 
     border-radius: 8px;
     cursor: pointer;
     margin-top: 10px;
@@ -142,7 +140,7 @@ input:focus {
 }
 
 .btn-primary:hover {
-    background-color: #ff9e9e; /* Darker pink on hover */
+    background-color: #ff9e9e; 
     transform: translateY(-1px);
 }
 

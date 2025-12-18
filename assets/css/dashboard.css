@@ -92,7 +92,6 @@ body {
 
 .dash-grid {
     display: grid;
-    /* Responsive columns: Fits as many as possible, min width 280px */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px;
 }
@@ -115,10 +114,25 @@ body {
 }
 
 .quote-icon {
-    font-size: 3rem; color: #e0e0e0; margin-bottom: 10px; display: block;
+    font-size: 3rem; 
+    color: #e0e0e0; 
+    margin-bottom: 10px; 
+    display: block;
 }
-.quote-text { font-size: 1.1rem; font-style: italic; color: #444; margin-bottom: 10px; }
-.quote-author { font-size: 0.9rem; color: #00BCD4; font-weight: bold; text-align: right; }
+
+.quote-text { 
+    font-size: 1.1rem; 
+    font-style: italic; 
+    color: #444; 
+    margin-bottom: 10px; 
+}
+
+.quote-author { 
+    font-size: 0.9rem; 
+    color: #00BCD4; 
+    font-weight: bold; 
+    text-align: right; 
+}
 
 /* Mood Card */
 .mood-card { text-align: center; }
@@ -127,44 +141,128 @@ body {
     justify-content: center;
     gap: 10px;
     margin: 15px 0;
-    flex-wrap: wrap; /* Allows buttons to stack on phones */
+    flex-wrap: wrap; 
 }
 
 .mood-btn {
-    border: none; background: #f9f9f9; padding: 10px; border-radius: 10px;
-    cursor: pointer; transition: 0.2s; font-size: 0.9rem;
+    border: none; 
+    background: #f9f9f9; 
+    padding: 10px; 
+    border-radius: 10px;
+    cursor: pointer; 
+    transition: 0.2s; 
+    font-size: 0.9rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    flex: 1; min-width: 60px; /* Responsive sizing */
+    flex: 1; 
+    min-width: 60px; 
 }
-.mood-btn:hover { transform: translateY(-3px); }
-.happy:hover { background: #fff9c4; }
-.calm:hover { background: #e1f5fe; }
-.anxious:hover { background: #ffebee; }
-.sad:hover { background: #eceff1; }
 
-.chart-container { height: 250px; width: 100%; position: relative; }
+.mood-btn:hover { 
+    transform: translateY(-3px);
+ }
 
-/* Profile Card */
-.profile-card { background: #fafafa; }
+.happy:hover { 
+    background: #fff9c4; 
+}
+
+.calm:hover { 
+    background: #e1f5fe; 
+}
+
+.anxious:hover { 
+    background: #ffebee; 
+}
+
+.sad:hover { 
+    background: #eceff1; 
+}
+
+.chart-container { 
+    height: 250px;
+     width: 100%; 
+     position: relative; 
+    }
+
+
+.profile-card { 
+    background: #fafafa;
+ }
+
 .avatar-circle {
-    width: 70px; height: 70px; border-radius: 50%;
-    margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; font-weight: bold; color: white;
+    width: 70px; 
+    height: 70px; 
+    border-radius: 50%;
+    margin: 0 auto 15px auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-size: 2rem; 
+    font-weight: bold; 
+    color: white;
 }
-.btn-link { display: inline-block; margin-top: 10px; color: #00BCD4; font-weight: bold; text-decoration: none; }
+
+.btn-link { 
+    display: inline-block; 
+    margin-top: 10px; 
+    color: #00BCD4; 
+    font-weight: bold; 
+    text-decoration: none; 
+}
 
 /* Setup Form */
 .setup-card {
-    background: white; padding: 30px; border-radius: 15px;
+    background: white; 
+    padding: 30px; border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    max-width: 500px; margin: 0 auto; text-align: center;
+    max-width: 500px;
+     margin: 0 auto; 
+     text-align: center;
 }
-.setup-card input[type="text"] { width: 100%; padding: 12px; margin: 10px 0 20px 0; border: 1px solid #ddd; border-radius: 8px; }
-.color-picker { display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
-.color-picker label { width: 40px; height: 40px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; transition: 0.2s; }
-.color-picker label:hover { transform: scale(1.1); }
-.color-picker input:checked + label { border-color: #333; transform: scale(1.2); }
-.btn-primary { width: 100%; padding: 14px; background: #FFB6C1; color: #333; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; }
+
+.setup-card input[type="text"] { 
+    width: 100%; 
+    padding: 12px; 
+    margin: 10px 0 20px 0; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+}
+
+.color-picker { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-top: 10px; 
+    flex-wrap: wrap; 
+}
+.color-picker label { 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    border: 3px solid transparent; 
+    transition: 0.2s;
+ }
+
+.color-picker label:hover { 
+    transform: scale(1.1); 
+}
+
+.color-picker input:checked + label { 
+    border-color: #333; 
+    transform: scale(1.2); 
+}
+
+.btn-primary { 
+    width: 100%; 
+    padding: 14px; 
+    background: #FFB6C1; 
+    color: #333; 
+    border: none; 
+    border-radius: 50px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
 
 @media (max-width: 768px) {
     

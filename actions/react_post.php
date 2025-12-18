@@ -39,9 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $del->bind_param("ii", $post_id, $profile_id);
         $del->execute();
         $del->close();
-    } else {
-        // --- NOT LIKED: ADD IT (LIKE) ---
-        // reaction_type_id = 1 (Heart) based on your previous SQL
+    } 
+    else {
         $type = 1; 
         $ins = $conn->prepare("INSERT INTO reactions_safespace (post_id, profile_id, reaction_type_id) VALUES (?, ?, ?)");
         $ins->bind_param("iii", $post_id, $profile_id, $type);
@@ -51,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check->close();
 
     // 4. Redirect back to keep the flow smooth
-    // We use $_SERVER['HTTP_REFERER'] to send them back to exactly where they were (Profile or Community)
+    // We use $_SERVER['HTTP_REFERER'] to send them back to exactly where they were 
     if (isset($_SERVER['HTTP_REFERER'])) {
         header("Location: " . $_SERVER['HTTP_REFERER']);
     } else {
